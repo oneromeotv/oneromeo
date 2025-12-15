@@ -14,7 +14,9 @@
   }
   
   /* You can optionally reset the default Tailwind h1-h6 tags to use Poppins */
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, .hero-text {
+    /* Enforce the zinc-700 color */
+    color: theme('colors.zinc.700');
     font-family: var(--font-poppins), sans-serif;
   }
 }

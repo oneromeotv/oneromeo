@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar';
 import './globals.css';
 import { Inter, Poppins } from 'next/font/google'; // Import both fonts
 
@@ -26,7 +27,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50`}
     >
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

@@ -17,10 +17,10 @@ function EbookCtaButton() {
 export default function HomePage() {
   return (
     <div className="flex min-h-screen justify-center bg-zinc-50 font-sans dark:bg-zinc-900">
-      <main className="w-full max-w-4xl py-12 px-6 sm:px-12 lg:px-16 space-y-20">
+      <main className="w-full max-w-4xl mx-auto py-16 px-6 md:px-12 space-y-16">
         {/* 1. HERO SECTION */}
         <section className="text-center pt-8 pb-10 sm:pt-16 sm:pb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-black dark:text-white leading-tight">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight dark:text-white leading-tight">
             Connecting Souls. Sharing Stories.
           </h1>
           <p className="mt-5 text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
@@ -34,8 +34,9 @@ export default function HomePage() {
 
         {/* 2. INTRODUCTION SECTION: YouTube and Author Context */}
         <section className="border-t border-zinc-200 dark:border-zinc-700 pt-16 grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Text and CTA */}
           <div>
-            <h2 className="text-3xl font-bold text-black dark:text-white mb-4">
+            <h2 className="text-3xl font-bold font-heading dark:text-white mb-4">
               Behind the Camera: My Journey
             </h2>
             <div className="text-lg text-zinc-600 dark:text-zinc-400 space-y-4">
@@ -56,7 +57,8 @@ export default function HomePage() {
               href="[Your YouTube Channel URL]"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+              // Applied amber color consistency
+              className="mt-4 inline-flex items-center gap-2 text-amber-600 dark:text-amber-500 font-semibold hover:underline"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19.615 3.184c-3.604-.251-11.233-.251-14.837 0C1.865 3.447.887 5.257.887 7.727v8.546c0 2.47 1.272 4.28 3.89 4.543 3.604.251 11.233.251 14.837 0 2.618-.263 3.89-2.073 3.89-4.543V7.727c0-2.47-1.272-4.28-3.89-4.543zM10 15V9l6 3-6 3z" />
@@ -64,30 +66,33 @@ export default function HomePage() {
               Watch My Latest Video
             </a>
           </div>
-          {/* Mock image for author/youtube presence */}
-          <div className="flex justify-center">
-            <Image
-              src="/placeholder-youtube.jpg" // CHANGE THIS PATH
-              alt="Author presenting a video about human connection"
-              width={400}
-              height={300}
-              className="rounded-xl shadow-lg object-cover"
-              priority={false}
-            />
+
+          {/* Right Column: Responsive Image (Overflow Fix) */}
+          <div className="flex justify-center w-full">
+            {/* This container defines the responsive size and aspect ratio of the image */}
+            <div className="relative w-full max-w-md aspect-video">
+              <Image
+                src="/placeholder-youtube.jpg"
+                alt="Author presenting a video about human connection"
+                fill // Fills the parent container
+                className="rounded-xl shadow-lg object-cover"
+                priority={false}
+              />
+            </div>
           </div>
         </section>
 
         {/* 3. MOCK INFO SECTION: Testimonials / Featured Content */}
         <section className="border-t border-zinc-200 dark:border-zinc-700 pt-16">
-          <h2 className="text-3xl font-bold text-center text-black dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-center dark:text-white mb-8">
             What Readers and Viewers Are Saying
           </h2>
           <div className="grid sm:grid-cols-3 gap-8 text-center">
             {/* Mock Testimonial 1 */}
             <div className="p-6 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
               <blockquote className="italic text-zinc-700 dark:text-zinc-300">
-                "The most insightful content on connection I've ever found. A
-                must-read."
+                &quot;The most insightful content on connection I've ever found.
+                A must-read."
               </blockquote>
               <footer className="mt-3 text-sm font-semibold text-black dark:text-white">
                 – Sarah K.
@@ -115,8 +120,8 @@ export default function HomePage() {
         </section>
 
         {/* 4. EBOOK CTA SECTION: Final Pitch */}
-        <section className="border-t border-zinc-200 dark:border-zinc-700 pt-16 pb-20 text-center bg-white dark:bg-zinc-900">
-          <h2 className="text-4xl font-extrabold text-black dark:text-white">
+        <section className="border-t border-zinc-200 dark:border-zinc-700 pt-16 pb-20 text-center bg-white dark:bg-zinc-900 px-4">
+          <h2 className="text-4xl font-extrabold dark:text-white">
             Ready to Connect Deeper?
           </h2>
           <p className="mt-3 text-xl text-zinc-600 dark:text-zinc-400">
