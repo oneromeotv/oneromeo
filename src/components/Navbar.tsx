@@ -5,10 +5,11 @@ import { Fragment, useState } from 'react';
 // 2. DEFINE THE NAVIGATION STRUCTURE (Copied from your input)
 const NAV_ITEMS = [
   { label: 'Home', href: '/', isCta: false },
-  { label: 'Ebook', href: '/ebook', isCta: false },
-  { label: 'About Me', href: '/about', isCta: false },
-  { label: 'Contact', href: '/contact', isCta: false },
-  { label: 'Order Ebook', href: '/order', isCta: true },
+  { label: 'Who I Am', href: '/who-i-am', isCta: false },
+  { label: 'eBook', href: '/ebook', isCta: false },
+  { label: 'Notes', href: '/notes', isCta: false },
+  { label: 'Say Hi', href: '/say-hi', isCta: false },
+  { label: 'Read eBook', href: '/read-ebook', isCta: true },
 ];
 
 export default function Navbar() {
