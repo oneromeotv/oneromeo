@@ -183,8 +183,11 @@ export default function NotesPage() {
         {/* --- Header --- */}
         <header className="text-center space-y-3">
           <h1 className="text-5xl font-extrabold font-heading dark:text-white leading-tight">
-            My Private Notes
+            My notes
           </h1>
+          <p className="text-xl font-bold text-zinc-600 dark:text-zinc-400">
+            My daily thoughts.
+          </p>
           {session && (
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
               <p className="text-lg text-green-600 dark:text-green-400 font-semibold">
@@ -206,7 +209,7 @@ export default function NotesPage() {
         {/* --- PUBLIC SECTION: LIST OF NOTES --- */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold font-heading dark:text-white border-b pb-2 border-zinc-200 dark:border-zinc-700">
-            Latest Thoughts ({notes.length})
+            Latest thoughts ({notes.length})
           </h2>
 
           {loadingNotes && (

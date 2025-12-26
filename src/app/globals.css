@@ -1,22 +1,27 @@
 @import "tailwindcss";
- 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
 }
 
 @layer base {
-  body {
-    /* Use the CSS variable defined as --font-inter */
-    font-family: var(--font-inter), sans-serif;
+  * {
+    border-color: #e4e4e7; /* Zinc 200 */
   }
-  
-  /* You can optionally reset the default Tailwind h1-h6 tags to use Poppins */
-  h1, h2, h3, h4, h5, h6, .hero-text {
-    /* Enforce the zinc-700 color */
-    color: theme('colors.zinc.700');
-    font-family: var(--font-poppins), sans-serif;
+  .dark * {
+    border-color: #27272a; /* Zinc 800 */
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), sans-serif;
   }
 }
