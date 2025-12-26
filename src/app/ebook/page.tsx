@@ -1,16 +1,57 @@
+'use client';
 import Image from 'next/image';
-import { Camera, Heart, Play, MessageSquare, Sparkles } from 'lucide-react';
+import {
+  Camera,
+  Heart,
+  Play,
+  MessageSquare,
+  Sparkles,
+  Loader2,
+} from 'lucide-react';
+import { useState } from 'react';
 
 function CheckoutButton() {
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/checkout', { method: 'POST' });
+      const data = await response.json();
+
+      if (data.url) {
+        // Direct the browser to the official Stripe-hosted URL
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (error) {
+      console.error('Stripe error:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <button
+      onClick={handleCheckout}
+      disabled={loading}
       className="w-full sm:w-auto px-10 py-4 text-xl font-bold rounded-2xl 
                  bg-amber-600 text-white shadow-lg transition-all duration-300 
                  hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98]
-                 tracking-tight"
-      aria-label="Purchase the semi-biographical novel"
+                 disabled:opacity-70 disabled:cursor-not-allowed
+                 tracking-tight flex items-center justify-center gap-3"
     >
-      Read my novel - HKD 9.90
+      {loading ? (
+        <>
+          <Loader2 className="w-5 h-5 animate-spin" />
+          Processing...
+        </>
+      ) : (
+        'Read my novel — HKD 9.90'
+      )}
     </button>
   );
 }
