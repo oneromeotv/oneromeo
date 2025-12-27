@@ -63,22 +63,18 @@ export default function EbookPage() {
         {/* 1. PRESENTATION SECTION */}
         <section className="grid md:grid-cols-2 gap-16 items-center">
           {/* Ebook Cover with Viewfinder Frame */}
-          <div className="relative group mx-auto md:mx-0">
-            <div className="p-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] shadow-2xl">
-              <div className="p-2 border-2 border-dotted border-zinc-300 dark:border-zinc-700 rounded-[2rem]">
-                <div className="relative aspect-[2/3] w-64 h-96 rounded-[1.2rem] overflow-hidden bg-zinc-100">
-                  <Image
-                    src="/ebook.png"
-                    alt="Not in a Million Years"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-amber-500 text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg rotate-12">
-              Instant download
+
+          {/* Added w-full and min-h-[200px] to ensure visibility on mobile */}
+          <div className="relative group mx-auto md:mx-0 w-full max-w-md min-h-[250px]">
+            <div className="relative aspect-[4/3] w-full rounded-[1.2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+              <Image
+                src="/ebook-.png"
+                alt="Not in a Million Years"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 450px"
+              />
             </div>
           </div>
 

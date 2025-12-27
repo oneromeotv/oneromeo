@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Map, Milestone, ArrowUpRight, Video } from 'lucide-react';
 
+export const revalidate = 3600; // Revalidate every 1 hour (in seconds)
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
@@ -25,7 +27,7 @@ export default function AboutPage() {
                 <div className="p-1.5 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-[1.2rem]">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
                     <Image
-                      src="/about-me.jpeg"
+                      src="/who.jpg"
                       alt="Arnold - OneRomeo"
                       fill
                       className="object-cover transition-transform duration-700 hover:scale-105"

@@ -30,7 +30,7 @@ export default function HomePage() {
               <div className="p-2 border-2 border-dotted border-zinc-300 dark:border-zinc-600 rounded-[2rem]">
                 <div className="relative aspect-[16/9] w-full rounded-[1.5rem] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                   <Image
-                    src="/hero-image.jpg"
+                    src="/home.jpeg"
                     alt="Cinematic storytelling"
                     fill
                     className="object-cover"

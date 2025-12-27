@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '../components/Navbar';
 import './globals.css';
 import { Inter, Poppins } from 'next/font/google'; // Import both fonts
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
