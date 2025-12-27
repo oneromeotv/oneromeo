@@ -1,7 +1,29 @@
+'use client';
 import Link from 'next/link';
-import { Check, Download, Home, Film } from 'lucide-react';
+import { Check, Download, Home, Film, Loader2 } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 export default function CheckoutSuccessPage() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get('session_id');
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownload = () => {
+    if (isDownloading || !sessionId) return;
+
+    setIsDownloading(true);
+
+    // Trigger the file download by navigating the browser to the API route
+    window.location.href = `/api/download?session_id=${sessionId}`;
+
+    // Reset the button state after 5 seconds
+    // (enough time for the server to respond and start the download stream)
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 5000);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950 px-6">
       {/* Viewfinder-style container */}
@@ -18,21 +40,34 @@ export default function CheckoutSuccessPage() {
               Order Confirmed
             </h1>
             <p className="text-zinc-500 dark:text-zinc-400 font-medium">
-              Thank you for supporting my journey. Your story is ready.
+              I‘m glad this story found its way to you :&#41;
             </p>
           </div>
 
           {/* Download Action */}
           <div className="space-y-3">
-            <Link
-              href="/downloads/not-in-a-million-years.epub"
-              className="flex items-center justify-center gap-3 w-full py-4 bg-amber-500 text-black rounded-2xl font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-amber-500/10"
+            <button
+              onClick={handleDownload}
+              disabled={isDownloading || !sessionId}
+              className="flex items-center justify-center gap-3 w-full py-4 bg-amber-500 text-black rounded-2xl font-bold hover:scale-[1.02] disabled:opacity-70 disabled:scale-100 disabled:cursor-not-allowed transition-all shadow-lg shadow-amber-500/10"
             >
-              <Download className="w-5 h-5" /> Download Ebook
-            </Link>
+              {isDownloading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Preparing eBook...
+                </>
+              ) : (
+                <>
+                  <Download className="w-5 h-5" />
+                  Download eBook
+                </>
+              )}
+            </button>
 
             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
-              Format: EPUB • Size: 1.2MB
+              {isDownloading
+                ? 'Verifying Payment...'
+                : 'Format: EPUB • 3 Attempts Max'}
             </p>
           </div>
 
@@ -45,9 +80,10 @@ export default function CheckoutSuccessPage() {
             </Link>
             <Link
               href="https://youtube.com/@oneromeo"
+              target="_blank"
               className="flex items-center gap-2 text-sm font-bold text-zinc-500 hover:text-red-500 transition-colors"
             >
-              <Film className="w-4 h-4" /> Watch Stories
+              <Film className="w-4 h-4" /> Watch stories
             </Link>
           </div>
         </div>
