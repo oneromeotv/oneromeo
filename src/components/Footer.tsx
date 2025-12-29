@@ -1,4 +1,3 @@
-import { Youtube, Facebook, Video } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -29,7 +28,7 @@ export default function Footer() {
             </svg>
           </Link>
           <Link
-            href="https://facebook.com/oneromeo"
+            href="https://facebook.com/oneromeo2025"
             target="_blank"
             className="text-zinc-400 hover:text-blue-600 transition-colors"
           >
@@ -54,6 +53,10 @@ export default function Footer() {
         <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em]">
           © 2025 OneRomeo.com. All Rights Reserved.
         </p>
+        <div className=" text-[14px] text-zinc-400 space-x-4">
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
+        </div>
       </div>
     </footer>
   );

@@ -6,7 +6,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST() {
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      payment_method_types: ['card', 'alipay', 'wechat_pay'],
+      payment_method_options: {
+        wechat_pay: {
+          client: 'web', // Required to show the QR code on desktop
+        },
+      },
       line_items: [
         {
           price_data: {
@@ -14,7 +19,6 @@ export async function POST() {
             product_data: {
               name: 'Not in a Million Years (Ebook)',
               description: 'A semi-biographical novel by Arnold.',
-              //   images: [`${process.env.NEXT_PUBLIC_BASE_URL}/ebook.png`],
             },
             unit_amount: 990, // $9.90 in cents
           },

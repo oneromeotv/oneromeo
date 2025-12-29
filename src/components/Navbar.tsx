@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { Loader2, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/', isCta: false },
@@ -45,6 +46,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="/oneromeo-logo.png"
+              alt="OneRomeo Logo"
+              width={40}
+              height={40}
+            />
             <span className="text-xl font-extrabold font-heading text-zinc-900 dark:text-white hover:text-amber-600 transition-colors">
               OneRomeo
             </span>

@@ -1,7 +1,43 @@
 import Image from 'next/image';
 import Link from 'next/link';
 // If using Lucide icons (standard in Next.js projects)
-import { Youtube, PenLine, BookOpen, ArrowRight, Video } from 'lucide-react';
+import { PenLine, BookOpen, ArrowRight, Video } from 'lucide-react';
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Real People, Real Stories | OneRomeo',
+  description:
+    'OneRomeo captures real moments from real people on camera, one story at a time.',
+
+  // 1. Open Graph (Facebook, Instagram, LinkedIn, WhatsApp)
+  openGraph: {
+    title: 'Real People, Real Stories | OneRomeo',
+    description:
+      'OneRomeo captures real moments from real people on camera, one story at a time.',
+    url: 'https://oneromeo.com',
+    siteName: 'OneRomeo',
+    images: [
+      {
+        url: '/og-image.jpg', // Put a 1200x630px image in your /public folder
+        width: 1200,
+        height: 630,
+        alt: 'OneRomeo Cinematic Storytelling',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+
+  // 2. Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Real People, Real Stories | OneRomeo',
+    description:
+      'OneRomeo captures real moments from real people on camera, one story at a time.',
+    images: ['/og-image.jpg'], // Same image as OG
+  },
+};
 
 export default function HomePage() {
   return (
@@ -61,7 +97,7 @@ export default function HomePage() {
                 {
                   name: 'On camera moments',
                   href: 'https://youtube.com/@oneromeo',
-                  icon: <Youtube className="w-5 h-5" />,
+                  icon: <Video className="w-5 h-5" />,
                   color: 'text-red-600 bg-red-50 dark:bg-red-900/20',
                 },
                 {

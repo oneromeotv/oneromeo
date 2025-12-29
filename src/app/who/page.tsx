@@ -4,7 +4,42 @@ import { Map, Milestone, ArrowUpRight, Video } from 'lucide-react';
 
 export const revalidate = 3600; // Revalidate every 1 hour (in seconds)
 
-export default function AboutPage() {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Who I Am – Arnold | OneRomeo',
+  description:
+    'I’m Arnold, a newbie filmmaker and storyteller documenting real people, real moments, and human connection through video.',
+
+  openGraph: {
+    title: 'Who I Am – Arnold | OneRomeo',
+    description:
+      'I’m Arnold, a newbie filmmaker and storyteller documenting real people, real moments, and human connection through video.',
+
+    url: 'https://oneromeo.com/who',
+    siteName: 'OneRomeo',
+    images: [
+      {
+        url: '/about-me-og.jpg', // Use a high-quality portrait
+        width: 1200,
+        height: 630,
+        alt: 'Arnold Meindertsma - OneRomeo',
+      },
+    ],
+    type: 'profile', // Tells social networks this is a person's profile
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Who I Am – Arnold | OneRomeo',
+    description:
+      'I’m Arnold, a newbie filmmaker and storyteller documenting real people, real moments, and human connection through video.',
+
+    images: ['/about-me-og.jpg'],
+  },
+};
+
+export default function WhoPage() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
       <main className="max-w-4xl mx-auto py-20 px-6 md:px-12 space-y-24">
