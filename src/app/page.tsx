@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { PenLine, BookOpen, ArrowRight, Video } from 'lucide-react';
 
 import { Metadata } from 'next';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Real People, Real Stories | OneRomeo',

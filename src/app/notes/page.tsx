@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import NotesPageClient from './NotesPageClient';
 
+export const revalidate = 600;
+
 export const metadata: Metadata = {
   title: 'Field Notes | OneRomeo',
   description:

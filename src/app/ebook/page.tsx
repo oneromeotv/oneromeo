@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import EbookPageClient from './EbookPageClient';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Not in a Million Years – A Novel by Arnold | OneRomeo',
   description:

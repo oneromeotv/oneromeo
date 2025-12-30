@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Map, Milestone, ArrowUpRight, Video } from 'lucide-react';
 
-export const revalidate = 3600; // Revalidate every 1 hour (in seconds)
+export const revalidate = 86400;
 
 import { Metadata } from 'next';
 

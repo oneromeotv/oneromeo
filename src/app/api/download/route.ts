@@ -90,11 +90,11 @@ export async function GET(request: NextRequest) {
       <body>
         <div class="card">
           <h1>Limit Reached</h1>
-          <p>You've used your 3 download attempts. If you need a fresh link, I'm happy to reset it for you.</p>
+          <p>If you need a fresh link, I'm happy to reset it for you.</p>
           
           <div class="button-group">
-            <a href="mailto:support@oneromeo.com" class="primary-button">Contact for Reset</a>
-            <a href="javascript:history.back()" class="secondary-button">Return to Order</a>
+            <a href="mailto:support@oneromeo.com" class="primary-button">Contact for reset</a>
+            <a href="javascript:history.back()" class="secondary-button">Return to order</a>
           </div>
         </div>
       </body>
