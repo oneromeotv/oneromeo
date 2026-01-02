@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     // It's best to use a specific image showing the book cover for this page
     images: [
       {
-        url: '/ebook-share-image.jpg',
+        url: '/imgs/ebook-og.png',
         width: 1200,
         height: 630,
         alt: 'Not in a Million Years eBook Cover',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Not in a Million Years – A Novel by Arnold | OneRomeo',
     description:
       'Not in a Million Years is a coming-of-age novel about a young law student caught between expectations, love, and escape.',
-    images: ['/ebook-share-image.jpg'],
+    images: ['/imgs/ebook-og.png'],
   },
 };
 

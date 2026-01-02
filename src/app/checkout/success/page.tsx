@@ -4,15 +4,15 @@ import CheckoutSuccessPageClient from './CheckoutSuccessPageClient';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'eBook order confirmation | OneRomeo',
+  title: 'Order Confirmed | OneRomeo',
   description:
-    'A collection of stories, observations, and cinematic moments captured in the field.',
+    'Thank you for your order. Your eBook purchase is confirmed and ready to download.',
   openGraph: {
-    title: 'Field Notes | OneRomeo',
+    title: 'Order Confirmed | OneRomeo',
     description:
-      'Real stories from real people. Explore the latest notes and observations.',
-    url: 'https://oneromeo.com/notes',
-    images: ['/notes-og.jpg'], // A collage or a cinematic landscape shot
+      'Thank you for your order. Your eBook purchase is confirmed and ready to download.',
+    url: 'https://oneromeo.com/checkout/success',
+    images: ['/imgs/ebook-og.png'],
     type: 'website',
   },
 };

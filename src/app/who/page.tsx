@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'OneRomeo',
     images: [
       {
-        url: '/about-me-og.jpg', // Use a high-quality portrait
+        url: '/imgs/who-og.png', // Use a high-quality portrait
         width: 1200,
         height: 630,
         alt: 'Arnold Meindertsma - OneRomeo',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       'I’m Arnold, a newbie filmmaker and storyteller documenting real people, real moments, and human connection through video.',
 
-    images: ['/about-me-og.jpg'],
+    images: ['/imgs/who-og.png'],
   },
 };
 

@@ -83,6 +83,8 @@ export default function NotesPage() {
   const router = useRouter();
   const [notes, setNotes] = useState<Note[]>([]);
   const [loadingNotes, setLoadingNotes] = useState(true);
+  const [displayLimit, setDisplayLimit] = useState(10);
+  const [hasMore, setHasMore] = useState(true);
 
   // ⭐️ INTEGRATION: Use the hook to get client, session, and loading state
   const { supabase, session, loading: loadingSession } = useSupabase();
@@ -90,22 +92,42 @@ export default function NotesPage() {
   // Get user identity for display
   const userIdentifier =
     session?.user?.email || session?.user?.id.substring(0, 8) + '...';
+  const fetchNotes = useCallback(
+    async (limit: number) => {
+      // Only show the big loading spinner if we don't have any notes yet
+      if (notes.length === 0) setLoadingNotes(true);
 
-  // Function to fetch the notes from Supabase
-  const fetchNotes = useCallback(async () => {
-    setLoadingNotes(true);
-    const { data, error } = await supabase
-      .from('notes')
-      .select('id, created_at, content')
-      .order('created_at', { ascending: false });
+      const { data, error, count } = await supabase
+        .from('notes')
+        .select('id, created_at, content', { count: 'exact' })
+        .order('created_at', { ascending: false })
+        .range(0, limit - 1);
 
-    if (error) {
-      console.error('Error fetching notes:', error);
-    } else if (data) {
-      setNotes(data);
+      if (error) {
+        console.error('Error fetching notes:', error);
+      } else if (data) {
+        // This replaces the old list with the new, longer list
+        // without the user seeing a "flash" or "No notes" message
+        setNotes(data);
+        setHasMore(data.length < (count || 0));
+      }
+
+      // We set this to false so the "Loading..." text on the button goes away
+      setLoadingNotes(false);
+    },
+    [supabase, notes.length]
+  );
+
+  // Trigger fetch when displayLimit changes
+  useEffect(() => {
+    if (!loadingSession) {
+      fetchNotes(displayLimit);
     }
-    setLoadingNotes(false);
-  }, [supabase]);
+  }, [loadingSession, displayLimit, fetchNotes]);
+
+  const handleLoadMore = () => {
+    setDisplayLimit((prev) => prev + 5);
+  };
 
   // ⭐️ INTEGRATION: Refetch notes when component mounts or session status changes
   useEffect(() => {
@@ -203,7 +225,12 @@ export default function NotesPage() {
         </header>
 
         {/* --- ADMIN SECTION: ADD NOTE FORM --- */}
-        {session && <NewNoteForm onSuccess={fetchNotes} supabase={supabase} />}
+        {session && (
+          <NewNoteForm
+            onSuccess={() => fetchNotes(displayLimit)}
+            supabase={supabase}
+          />
+        )}
 
         {/* --- PUBLIC SECTION: LIST OF NOTES --- */}
         <section className="space-y-6">
@@ -258,6 +285,27 @@ export default function NotesPage() {
               </li>
             ))}
           </ul>
+
+          {/* --- LOAD MORE BUTTON --- */}
+          {hasMore && (
+            <div className="flex justify-center pt-6">
+              <button
+                onClick={handleLoadMore}
+                disabled={loadingNotes}
+                className="px-6 py-2 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 
+                   dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 
+                   rounded-full font-semibold transition-colors disabled:opacity-50"
+              >
+                {loadingNotes ? 'Loading...' : 'Load More'}
+              </button>
+            </div>
+          )}
+
+          {!hasMore && notes.length > 0 && (
+            <p className="text-center text-zinc-500 text-sm mt-4">
+              You&apos;ve reached the end.
+            </p>
+          )}
         </section>
       </main>
     </div>

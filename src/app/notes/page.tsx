@@ -4,15 +4,15 @@ import NotesPageClient from './NotesPageClient';
 export const revalidate = 600;
 
 export const metadata: Metadata = {
-  title: 'Field Notes | OneRomeo',
+  title: 'Notes | OneRomeo',
   description:
-    'A collection of stories, observations, and cinematic moments captured in the field.',
+    'Short notes, thoughts, and observations by Arnold. Small moments, written down as they come.',
   openGraph: {
-    title: 'Field Notes | OneRomeo',
+    title: 'Notes | OneRomeo',
     description:
-      'Real stories from real people. Explore the latest notes and observations.',
+      'Short notes, thoughts, and observations by Arnold. Small moments, written down as they come.',
     url: 'https://oneromeo.com/notes',
-    images: ['/notes-og.jpg'], // A collage or a cinematic landscape shot
+    images: ['/imgs/notes-og.png'], // A collage or a cinematic landscape shot
     type: 'website',
   },
 };

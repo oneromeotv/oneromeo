@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'OneRomeo',
     images: [
       {
-        url: '/og-image.jpg', // Put a 1200x630px image in your /public folder
+        url: '/imgs/home-og.png', // Put a 1200x630px image in your /public folder
         width: 1200,
         height: 630,
         alt: 'OneRomeo Cinematic Storytelling',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'Real People, Real Stories | OneRomeo',
     description:
       'OneRomeo captures real moments from real people on camera, one story at a time.',
-    images: ['/og-image.jpg'], // Same image as OG
+    images: ['/imgs/home-og.png'], // Same image as OG
   },
 };
 
@@ -71,6 +71,7 @@ export default function HomePage() {
                     alt="Cinematic storytelling"
                     fill
                     className="object-cover"
+                    sizes="360"
                     priority
                   />
                   {/* Subtle 'Live' Indicator */}

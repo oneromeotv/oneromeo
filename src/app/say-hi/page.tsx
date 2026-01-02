@@ -2,15 +2,23 @@ import { Metadata } from 'next';
 import SayHiPageClient from './SayHiPageClient';
 
 export const metadata: Metadata = {
-  title: 'Say hi | OneRomeo',
+  title: 'Say Hi | OneRomeo',
   description:
-    'A collection of stories, observations, and cinematic moments captured in the field.',
+    'Say hi to Arnold at OneRomeo. Have a story, a question, or just want to connect? Feel free to reach out.',
   openGraph: {
-    title: 'Field Notes | OneRomeo',
+    title: 'Say Hi | OneRomeo',
     description:
-      'Real stories from real people. Explore the latest notes and observations.',
-    url: 'https://oneromeo.com/notes',
-    images: ['/notes-og.jpg'], // A collage or a cinematic landscape shot
+      'Say hi to Arnold at OneRomeo. Have a story, a question, or just want to connect? Feel free to reach out.',
+    url: 'https://oneromeo.com/say-hi',
+    siteName: 'OneRomeo',
+    images: [
+      {
+        url: '/imgs/home-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Say Hi to Arnold - OneRomeo',
+      },
+    ],
     type: 'website',
   },
 };
