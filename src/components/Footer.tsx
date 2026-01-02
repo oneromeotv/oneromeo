@@ -54,8 +54,8 @@ export default function Footer() {
           © 2025 OneRomeo.com. All Rights Reserved.
         </p>
         <div className=" text-[14px] text-zinc-400 space-x-4">
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
+          <Link href="/privacy">Privacy policy</Link>
+          <Link href="/terms">Terms of service</Link>
         </div>
       </div>
     </footer>
