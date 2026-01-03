@@ -22,7 +22,29 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const handleCtaClick = async (e: React.MouseEvent) => {
-    // ... (keep your existing handleCtaClick logic)
+    e.preventDefault();
+
+    if (isRedirecting) return;
+
+    setIsRedirecting(true);
+
+    try {
+      const response = await fetch('/api/checkout', { method: 'POST' });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('Checkout failed');
+      }
+    } catch (error) {
+      console.error('Navbar checkout error:', error);
+
+      setIsRedirecting(false);
+
+      alert('Could not connect to Stripe. Please try again.');
+    }
   };
 
   return (
