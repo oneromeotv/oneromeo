@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | OneRomeo',
+  title: 'Terms of Service',
   description:
     'The terms and conditions for using OneRomeo and purchasing digital products.',
 };

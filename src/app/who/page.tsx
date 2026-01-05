@@ -123,7 +123,7 @@ export default function WhoPage() {
                 rolling.
               </p>
               <Link
-                href="https://youtube.com/@oneromeo"
+                href="https://youtube.com/shorts/VNhcY-glv7o?feature=share"
                 className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 rounded-2xl font-bold hover:bg-amber-500 dark:hover:bg-amber-500 transition-colors"
               >
                 Watch the moment <Video className="w-5 h-5 ml-1" />

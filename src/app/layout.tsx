@@ -5,6 +5,7 @@ import { Inter, Poppins } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script'; // Import Script component
 import CookieBanner from '@/components/CookieBanner'; // Assuming you created this
+import { Metadata } from 'next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,6 +18,16 @@ const poppins = Poppins({
   weight: ['600', '800'],
   variable: '--font-poppins',
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: 'One Romeo',
+    template: '%s | One Romeo', // The %s gets replaced by the page title
+  },
+  icons: {
+    icon: '/favicon.ico', // Global icon
+  },
+};
 
 export default function RootLayout({
   children,

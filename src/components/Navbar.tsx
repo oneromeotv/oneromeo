@@ -75,10 +75,10 @@ export default function Navbar() {
                   {!item.isCta ? (
                     <Link
                       href={item.href}
-                      className={`text-base font-medium transition-colors ${
+                      className={`text-base transition-colors ${
                         isActive
-                          ? 'text-amber-600 dark:text-amber-500' // Active color
-                          : 'text-zinc-600 dark:text-zinc-400 hover:text-amber-600' // Default color
+                          ? 'text-amber-600 font-bold dark:text-amber-500 ' // Active color
+                          : 'text-zinc-600 dark:text-zinc-400 font-medium hover:text-amber-600' // Default color
                       }`}
                     >
                       {item.label}
@@ -144,7 +144,7 @@ export default function Navbar() {
                     onClick={closeMenu}
                     className={`block py-2 text-xl font-semibold text-center transition-colors ${
                       isActive
-                        ? 'text-amber-600'
+                        ? 'text-amber-600 font-extrabold'
                         : 'text-zinc-600 dark:text-zinc-400 hover:text-amber-600'
                     }`}
                   >

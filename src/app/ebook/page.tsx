@@ -4,12 +4,12 @@ import EbookPageClient from './EbookPageClient';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Not in a Million Years – A Novel by Arnold | OneRomeo',
+  title: 'Not in a Million Years – A Novel by Arnold',
   description:
     'Not in a Million Years is a coming-of-age novel about a young law student caught between expectations, love, and escape.',
 
   openGraph: {
-    title: 'Not in a Million Years – A Novel by Arnold | OneRomeo',
+    title: 'Not in a Million Years – A Novel by Arnold',
     description:
       'Not in a Million Years is a coming-of-age novel about a young law student caught between expectations, love, and escape.',
     url: 'https://oneromeo.com/ebook',

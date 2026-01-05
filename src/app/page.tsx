@@ -7,13 +7,13 @@ import { Metadata } from 'next';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Real People, Real Stories | OneRomeo',
+  title: 'Real People, Real Stories',
   description:
     'OneRomeo captures real moments from real people on camera, one story at a time.',
 
   // 1. Open Graph (Facebook, Instagram, LinkedIn, WhatsApp)
   openGraph: {
-    title: 'Real People, Real Stories | OneRomeo',
+    title: 'Real People, Real Stories',
     description:
       'OneRomeo captures real moments from real people on camera, one story at a time.',
     url: 'https://oneromeo.com',
@@ -48,7 +48,8 @@ export default function HomePage() {
         <section className="text-center pt-8 sm:pt-16">
           <div className="max-w-3xl mx-auto mb-12">
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6">
-              One person, one camera, <br className="hidden md:block" />
+              One person, <br /> one camera,
+              <br />
               <span className="text-amber-600 dark:text-amber-500">
                 one story
               </span>{' '}

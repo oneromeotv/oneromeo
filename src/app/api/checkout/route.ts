@@ -17,10 +17,11 @@ export async function POST() {
           price_data: {
             currency: 'hkd',
             product_data: {
-              name: 'Not in a Million Years (Ebook)',
-              description: 'A semi-biographical novel by Arnold.',
+              name: 'Not in a Million Years (eBook)',
+              description: 'A novel by Arnold Meindertsma',
+              images: ['https://oneromeo.com/ebook.png'],
             },
-            unit_amount: 990, // $9.90 in cents
+            unit_amount: 1100, // $11.00 in cents
           },
           quantity: 1,
         },

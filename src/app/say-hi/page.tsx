@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import SayHiPageClient from './SayHiPageClient';
 
 export const metadata: Metadata = {
-  title: 'Say Hi | OneRomeo',
+  title: 'Say Hi',
   description:
     'Say hi to Arnold at OneRomeo. Have a story, a question, or just want to connect? Feel free to reach out.',
   openGraph: {
-    title: 'Say Hi | OneRomeo',
+    title: 'Say Hi',
     description:
       'Say hi to Arnold at OneRomeo. Have a story, a question, or just want to connect? Feel free to reach out.',
     url: 'https://oneromeo.com/say-hi',

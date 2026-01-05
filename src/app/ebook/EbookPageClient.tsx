@@ -50,7 +50,7 @@ function CheckoutButton() {
           Processing...
         </>
       ) : (
-        'Read my novel — HKD 9.90'
+        'Read my novel — HKD 11.00'
       )}
     </button>
   );

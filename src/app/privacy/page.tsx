@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | OneRomeo',
+  title: 'Privacy Policy',
   description: 'How we handle your data and protect your privacy.',
 };
 
