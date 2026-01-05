@@ -6,7 +6,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST() {
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card', 'alipay', 'wechat_pay'],
+      payment_method_types: [
+        'card',
+        'alipay',
+        'wechat_pay',
+        'kr_card', // South Korean cards, Kakao Pay, Naver Pay
+        'bancontact', // Belgium
+        'eps', // Austria
+        'ideal', // Netherlands
+      ],
       payment_method_options: {
         wechat_pay: {
           client: 'web', // Required to show the QR code on desktop
