@@ -95,7 +95,7 @@ export default function SayHiPageClient() {
                         id="name"
                         required
                         disabled={status === 'sending'}
-                        placeholder="How should I address you?"
+                        placeholder="Tell me your name"
                         className="block w-full rounded-2xl border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-900 dark:text-white shadow-sm focus:border-amber-500 focus:ring-amber-500 text-lg p-4 transition-all disabled:opacity-50"
                       />
                     </div>
